@@ -1,0 +1,10 @@
+<CommunityApplications>
+  <Profile>
+Unraid templates for **Block Party**, a free, open-source panel for running Minecraft (Bedrock and Java) and Hytale servers at home, with a console server list so Xbox, PlayStation and Switch players can join.
+
+Built for running a family's servers. Questions, bugs and ideas go to the support link; the source and full instructions are on GitHub.
+  </Profile>
+  <Icon>https://raw.githubusercontent.com/ScottSchneck/block-party/main/assets/icon.png</Icon>
+  <WebPage>https://github.com/ScottSchneck/block-party</WebPage>
+  <Forum>https://github.com/ScottSchneck/block-party/issues</Forum>
+</CommunityApplications>

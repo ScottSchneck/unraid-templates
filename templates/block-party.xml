@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>blockparty</Name>
+  <Repository>ghcr.io/scottschneck/block-party:latest</Repository>
+  <Registry>https://github.com/ScottSchneck/block-party/pkgs/container/block-party</Registry>
+  <Network>br0</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/ScottSchneck/block-party/issues</Support>
+  <Project>https://github.com/ScottSchneck/block-party</Project>
+  <ReadMe>https://github.com/ScottSchneck/block-party#readme</ReadMe>
+  <Overview>
+Block Party runs your family's game servers at home: Minecraft Bedrock, Minecraft Java (Paper) and Hytale, from one web panel that works on a desktop or a phone.
+
+Xbox, PlayStation and Switch players can join without any extra apps: the panel has its own console server list and a small DNS server, so consoles see your servers in a menu.
+
+- Add, start, stop, update and restart servers, with a live console
+- Players page: who's online, the allowlist, operators, and an Allow button for anyone who tried to join
+- Settings as plain labelled controls, worlds and add-ons, Java plugins
+- Scheduled backups with one-click restore, without kicking anyone off
+- Accounts for the kids, with what each one can do on each server
+- Friends outside the house, overnight updates, notifications to your phone, Discord or email
+- Two-factor sign-in, and import from Crafty Controller
+
+IMPORTANT: give the container its own IP on your home network (Network Type br0, with a Fixed IP address). Consoles look for DNS on port 53 and the server list on port 19132, and every game server needs its own ports, so it can't share Unraid's IP.
+
+After it starts, open the WebUI and create the owner account. The setup code is in the container's log.
+  </Overview>
+  <Category>GameServers: Tools:System</Category>
+  <ExtraSearchTerms>block party blockparty minecraft bedrock java paper hytale geyser bedrockconnect crafty server panel console xbox playstation switch</ExtraSearchTerms>
+  <WebUI>https://[IP]:[PORT:8443]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/ScottSchneck/unraid-templates/main/templates/block-party.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/ScottSchneck/block-party/main/assets/icon.png</Icon>
+  <ExtraParams>--stop-timeout 60</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <Requires>A free IP address on your home network for the container (Network Type: br0, Fixed IP address). It can't run on Unraid's own IP or on the bridge network.</Requires>
+  <License>GPL-3.0</License>
+  <Screenshot>https://raw.githubusercontent.com/ScottSchneck/block-party/main/assets/screenshot-servers.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/ScottSchneck/block-party/main/assets/screenshot-server.png</Screenshot>
+  <Screenshot>https://raw.githubusercontent.com/ScottSchneck/block-party/main/assets/screenshot-phone.png</Screenshot>
+  <Changes>
+### 1.0.0
+First release.
+  </Changes>
+  <Config Name="Web panel port" Target="8443" Default="8443" Mode="tcp" Description="The web panel (HTTPS). With br0 the panel is always on this port at the container's own IP." Type="Port" Display="advanced" Required="true" Mask="false">8443</Config>
+  <Config Name="Panel data" Target="/data" Default="/mnt/user/appdata/blockparty/data" Mode="rw" Description="Your game servers, worlds, backups, accounts and settings." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/blockparty/data</Config>
+  <Config Name="Server list name" Target="LIST_NAME" Default="Server List" Description="What consoles show for your servers under Friends, LAN Games. For example: Smith Family Servers." Type="Variable" Display="always" Required="false" Mask="false">Server List</Config>
+  <Config Name="Crafty servers folder (optional)" Target="/import/crafty" Default="" Mode="ro" Description="To copy servers in from Crafty Controller (or another panel): its folder that holds one folder per server, for example /mnt/user/appdata/binhex-crafty-4/crafty/servers. It is only read, never changed. Leave empty if you don't need it." Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Container IP for consoles" Target="LIST_IP" Default="" Description="Leave empty: the panel uses the container's own IP. Set it only if the container has more than one address." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Extra servers file folder" Target="/config" Default="/mnt/user/appdata/blockparty/config" Mode="rw" Description="Optional servers.json for servers on other machines to show in the console menu." Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/blockparty/config</Config>
+  <Config Name="DNS for other lookups" Target="DNS_UPSTREAM" Default="1.1.1.1:53" Description="Where the built-in DNS sends every lookup that isn't for a console's featured servers." Type="Variable" Display="advanced" Required="false" Mask="false">1.1.1.1:53</Config>
+  <Config Name="Stop timeout" Target="STOP_TIMEOUT" Default="30" Description="Seconds a game server gets to save and stop when the container stops. With --stop-timeout 60 in Extra Parameters, keep it at 45 or less." Type="Variable" Display="advanced" Required="false" Mask="false">30</Config>
+  <Config Name="Log level" Target="LOG_LEVEL" Default="info" Description="info, or debug for more detail when something isn't working." Type="Variable" Display="advanced" Required="false" Mask="false">info</Config>
+</Container>
