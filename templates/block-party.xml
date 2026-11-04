@@ -18,7 +18,8 @@ Xbox, PlayStation and Switch players can join without any extra apps: the panel 
 - Add, start, stop, update and restart servers, with a live console
 - Players page: who's online, the allowlist, operators, and an Allow button for anyone who tried to join
 - Settings as plain labelled controls, worlds and add-ons, Java plugins
-- Scheduled backups with one-click restore, without kicking anyone off
+- Scheduled backups with one-click restore, without kicking anyone off, and copies off-site (Google Drive, iCloud Drive, OneDrive, Dropbox, Backblaze B2 and more, or another disk)
+- Play time: daily limits and bedtimes per kid, and open hours per server
 - Accounts for the kids, with what each one can do on each server
 - Friends outside the house, overnight updates, notifications to your phone, Discord or email
 - Two-factor sign-in, and import from Crafty Controller
@@ -41,6 +42,20 @@ After it starts, open the WebUI and create the owner account. The setup code is 
   <Screenshot>https://raw.githubusercontent.com/ScottSchneck/block-party/main/assets/screenshot-server.png</Screenshot>
   <Screenshot>https://raw.githubusercontent.com/ScottSchneck/block-party/main/assets/screenshot-phone.png</Screenshot>
   <Changes>
+### 1.4.2
+- Xbox sign-ins from Minecraft 1.26.60 consoles are verified again
+### 1.4.1
+- Consoles on 1.26.60 can open the server list from LAN Games again (no more error Terracotta)
+- Consoles outside the house can join the server list over NetherNet
+### 1.4.0
+- Off-site backups: Google Drive, iCloud Drive, OneDrive, Dropbox, Backblaze B2, another disk and more
+- Console server list works with Minecraft 1.26.60
+### 1.3.0
+- Play time: daily limits and bedtimes per kid, open hours per server, play history
+### 1.2.0
+- Settings page, and a notice when a newer Block Party is out
+### 1.1.0
+- Ready for NetherNet, Minecraft's newer connection type
 ### 1.0.0
 First release.
   </Changes>
@@ -48,6 +63,7 @@ First release.
   <Config Name="Panel data" Target="/data" Default="/mnt/user/appdata/blockparty/data" Mode="rw" Description="Your game servers, worlds, backups, accounts and settings." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/blockparty/data</Config>
   <Config Name="Server list name" Target="LIST_NAME" Default="Server List" Description="What consoles show for your servers under Friends, LAN Games. For example: Smith Family Servers." Type="Variable" Display="always" Required="false" Mask="false">Server List</Config>
   <Config Name="Crafty servers folder (optional)" Target="/import/crafty" Default="" Mode="ro" Description="To copy servers in from Crafty Controller (or another panel): its folder that holds one folder per server, for example /mnt/user/appdata/binhex-crafty-4/crafty/servers. It is only read, never changed. Leave empty if you don't need it." Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Off-site backups folder (optional)" Target="/offsite" Default="" Mode="rw" Description="To copy every backup to another disk or share (Settings, Off-site backups, Another disk or share): a folder on a different disk from the panel data, or a USB drive. Leave empty if you use a cloud provider or don't need it." Type="Path" Display="always" Required="false" Mask="false"/>
   <Config Name="Container IP for consoles" Target="LIST_IP" Default="" Description="Leave empty: the panel uses the container's own IP. Set it only if the container has more than one address." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Extra servers file folder" Target="/config" Default="/mnt/user/appdata/blockparty/config" Mode="rw" Description="Optional servers.json for servers on other machines to show in the console menu." Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/blockparty/config</Config>
   <Config Name="DNS for other lookups" Target="DNS_UPSTREAM" Default="1.1.1.1:53" Description="Where the built-in DNS sends every lookup that isn't for a console's featured servers." Type="Variable" Display="advanced" Required="false" Mask="false">1.1.1.1:53</Config>
