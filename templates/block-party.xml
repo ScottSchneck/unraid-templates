@@ -11,14 +11,16 @@
   <Project>https://github.com/ScottSchneck/block-party</Project>
   <ReadMe>https://github.com/ScottSchneck/block-party#readme</ReadMe>
   <Overview>
-Block Party runs your family's game servers at home: Minecraft Bedrock, Minecraft Java (Paper) and Hytale, from one web panel that works on a desktop or a phone.
+Block Party runs your family's game servers at home: Minecraft Bedrock, Minecraft Java (Paper, Purpur, Vanilla, Fabric, Forge, NeoForge and modpacks) and Hytale, from one web panel that works on a desktop or a phone.
 
 Xbox, PlayStation and Switch players can join without any extra apps: the panel has its own console server list and a small DNS server, so consoles see your servers in a menu.
 
 - Add, start, stop, update and restart servers, with a live console
 - Players page: who's online, the allowlist, operators, and an Allow button for anyone who tried to join
-- Settings as plain labelled controls, worlds and add-ons, Java plugins
-- Scheduled backups with one-click restore, without kicking anyone off, and copies off-site (Google Drive, iCloud Drive, OneDrive, Dropbox, Backblaze B2 and more, or another disk)
+- Settings as plain labelled controls, worlds, a file manager, scheduled tasks and computer-use graphs
+- Bedrock add-ons, Java plugins and mods, and modpacks, found on Modrinth, Hangar and CurseForge, installed and kept up to date
+- Lobbies (Velocity): one address in front of several Java servers
+- Scheduled backups with one-click restore (the whole server or one world), without kicking anyone off, and copies off-site (Google Drive, iCloud Drive, OneDrive, Dropbox, Backblaze B2 and more, or another disk)
 - Play time: daily limits and bedtimes per kid, and open hours per server
 - Accounts for the kids, with what each one can do on each server
 - Friends outside the house, overnight updates, notifications to your phone, Discord or email
@@ -29,7 +31,7 @@ IMPORTANT: give the container its own IP on your home network (Network Type br0,
 After it starts, open the WebUI and create the owner account. The setup code is in the container's log.
   </Overview>
   <Category>GameServers: Tools:System</Category>
-  <ExtraSearchTerms>block party blockparty minecraft bedrock java paper hytale geyser bedrockconnect crafty server panel console xbox playstation switch</ExtraSearchTerms>
+  <ExtraSearchTerms>block party blockparty minecraft bedrock java paper purpur fabric forge neoforge modpack modrinth curseforge velocity hytale geyser bedrockconnect crafty server panel console xbox playstation switch</ExtraSearchTerms>
   <WebUI>https://[IP]:[PORT:8443]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/ScottSchneck/unraid-templates/main/templates/block-party.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/ScottSchneck/block-party/main/assets/icon.png</Icon>
@@ -42,6 +44,24 @@ After it starts, open the WebUI and create the owner account. The setup code is 
   <Screenshot>https://raw.githubusercontent.com/ScottSchneck/block-party/main/assets/screenshot-server.png</Screenshot>
   <Screenshot>https://raw.githubusercontent.com/ScottSchneck/block-party/main/assets/screenshot-phone.png</Screenshot>
   <Changes>
+### 1.7.0
+- Mods tab for Fabric, Forge and NeoForge servers (Modrinth and CurseForge)
+- Updates for CurseForge add-ons and for modpacks
+- Consoles can join NeoForge servers
+- Lobbies (Velocity) in front of Paper and Purpur servers
+- "Updates are out" notifications; Discord messages are coloured cards
+- Put back one world from a backup
+### 1.6.1
+- CurseForge and modpack searches only show what will work
+### 1.6.0
+- CurseForge: Bedrock add-ons, texture packs and worlds, and Java modpacks (with a free API key)
+### 1.5.1
+- Plugin search only shows plugins made for the server's Minecraft version
+### 1.5.0
+- Computer-use graphs, scheduled tasks and a file manager
+- Purpur, Vanilla, Fabric, Forge and NeoForge servers, any Minecraft version, and Modrinth modpacks
+### 1.4.3
+- A quieter log
 ### 1.4.2
 - Xbox sign-ins from Minecraft 1.26.60 consoles are verified again
 ### 1.4.1
